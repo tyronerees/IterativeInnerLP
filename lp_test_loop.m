@@ -65,4 +65,4 @@ end
 lp_runs_writetable;
 
 
-plot_convergence(no_solvers,extras,test,1)
+plot_convergence(no_solvers,extras,test,first_prob)

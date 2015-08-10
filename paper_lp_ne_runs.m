@@ -6,7 +6,9 @@ close all
 
 problem = importdata('netlib.txt');
 length_problem = length(problem);
-length_problem = 5;
+
+first_prob = 3;
+length_problem = 1;
 
 max_sigma(length_problem) = 0;
 

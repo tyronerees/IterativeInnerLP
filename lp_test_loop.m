@@ -10,7 +10,7 @@
 % together with scalars length_problem, max_sigma, no_solvers
 
 
-for i = 1:length_problem
+for i = first_prob:first_prob + length_problem - 1
 
     %!!!!!!!!!!!!!!!!!!!!!!!!!!%
     %! Loop over the problems !%

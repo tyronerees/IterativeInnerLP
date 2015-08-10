@@ -7,7 +7,7 @@ close all
 problem = importdata('netlib.txt');
 length_problem = length(problem);
 
-first_prob = 3;
+first_prob = 1;
 length_problem = 1;
 
 max_sigma(length_problem) = 0;
@@ -25,7 +25,7 @@ test = struct('Method',{},...
               'descriptions',{});
 
 % setup first test
-test(1).Method = 224;        % backslash
+test(1).Method = 1;        % backslash
 test(1).krylov_method = 0;  % none
 test(1).precond_method = 0; % none
 test(1).inner_tol = 0.0;    % none
@@ -33,12 +33,10 @@ test(1).PDConvergenceDescriptions = 'lt_exact_convergence';
 test(1).descriptions = '$A\backslash b$';
 
 % setup second test
-test(2).Method = 23;        % krylov solver
-test(2).krylov_method = 4;  % mpgmres
-test(2).precond_method = 1; % aug lag
-test(2).inner_tol = 1e2;    
-test(2).PDConvergenceDescriptions = 'aug_lag, loose tol';
-test(2).descriptions = ['Aug lag, tol = $10\\eta_k$'];
+test(2).Method = 5;        % pcg
+test(2).inner_tol = 1e-5;    
+test(2).PDConvergenceDescriptions = 'CG';
+test(2).descriptions = ['Aug lag, tol = $10^{-6}$'];
 
 % setup third test
 test(3) = test(2);

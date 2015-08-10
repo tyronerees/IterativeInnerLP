@@ -36,13 +36,13 @@ test(1).descriptions = '$A\backslash b$';
 test(2).Method = 23;        % krylov solver
 test(2).krylov_method = 4;  % mpgmres
 test(2).precond_method = 1; % aug lag
-test(2).inner_tol = 1e1;    
+test(2).inner_tol = 1e2;    
 test(2).PDConvergenceDescriptions = 'aug_lag, loose tol';
 test(2).descriptions = ['Aug lag, tol = $10\\eta_k$'];
 
 % setup third test
 test(3) = test(2);
-test(3).inner_tol = 1e-1;   
+test(3).inner_tol = 1e-2;   
 test(3).PDConvergenceDescriptions = 'aug_lag, tighter tol';
 test(3).descriptions = ['PPCG, tol = $10^-1\\eta_k$'];
 

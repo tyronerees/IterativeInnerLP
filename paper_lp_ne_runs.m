@@ -34,15 +34,15 @@ test(1).descriptions = '$A\backslash b$';
 
 % setup second test
 test(2).Method = 5;        % pcg
-test(2).inner_tol = 1e-5;    
+test(2).inner_tol = 1e-2;    
 test(2).PDConvergenceDescriptions = 'CG';
-test(2).descriptions = ['Aug lag, tol = $10^{-6}$'];
+test(2).descriptions = ['Aug lag, tol = $10^{-2}$'];
 
 % setup third test
 test(3) = test(2);
-test(3).inner_tol = 1e-2;   
+test(3).inner_tol = 1e-8;   
 test(3).PDConvergenceDescriptions = 'aug_lag, tighter tol';
-test(3).descriptions = ['PPCG, tol = $10^-1\\eta_k$'];
+test(3).descriptions = ['Aug lag, tol = $10^-8$'];
 
 
 lp_test_loop;

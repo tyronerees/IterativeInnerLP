@@ -13,9 +13,10 @@ for i = 1:no_solvers
     semilogy(extras{i,problem}.primalfeas,'r-o')
     hold on, semilogy(extras{i,problem}.dualfeas,'k-x') 
     semilogy(extras{i,problem}.complementray,'b-.')
+    %    semilogy(extras{i,problem}.mu.^0.5,'g-*')
     hold off
     legend('Primal feasibility','Dual feasibility', ...
-           'Complementarity')
+           'Complementarity')%,'\mu^{1/2}')
     saveas(i,['img/xxx.png'],'png');
 end
 

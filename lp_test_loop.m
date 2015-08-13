@@ -35,6 +35,8 @@ for i = first_prob:first_prob + length_problem - 1
     options.OptTol    = 1e-7;
     options.LSMRMaxIter = 100;
     
+    options.CalculateError = 1;
+    
     gamma = 0.0;
     delta = 0.0;
     
@@ -66,4 +68,6 @@ lp_runs_writetable;
 
 
 plot_convergence(no_solvers,extras,test,first_prob)
-plot_inner_convergence(no_solvers,extras,test,first_prob)
+if options.CalculateError
+    plot_inner_convergence(no_solvers,extras,test,first_prob)
+end

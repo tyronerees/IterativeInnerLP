@@ -9,14 +9,21 @@ for i = 1:no_solvers
     con_viol(i).description = test(i).descriptions;
     Lag(i).resvec = extras{i,problem}.Lagrangian;%Lagrangian(:,i);
     Lag(i).description = test(i).descriptions;
-    figure(i+3)
-    semilogy(extras{i,problem}.RelRes,'r-o')
-    hold on, %semilogy(extras{i,problem}.dualfeas,'k-x') 
+    figure(i+no_solvers)
+% $$$     resrn_p = extras{i,problem}.PrimalErrorN;%/extras{i,problem}.PrimalErrorN(1);
+% $$$     semilogy(resrn_p,'g-*')
+% $$$     hold on
+% $$$     resrn_d = extras{i,problem}.DualErrorN;%/extras{i,problem}.DualErrorN(1);
+% $$$     semilogy(resrn_d,'m-o')
+    resrn = extras{i,problem}.ErrorNorm;%/extras{i,problem}.ErrorNorm(1);
+    semilogy(resrn,'r-o')
+    hold on
+    %    hold on, %semilogy(extras{i,problem}.dualfeas,'k-x') 
     %    semilogy(extras{i,problem}.complementray,'b-.')
     semilogy(extras{i,problem}.mu.^0.5,'k-x')
     semilogy(extras{i,problem}.mu,'b-*')
     hold off
-    legend('final residual','\mu^{1/2}','\mu')
+    legend('Error','\mu^{1/2}','\mu')
     saveas(i,['img/xxx.png'],'png');
 end
 

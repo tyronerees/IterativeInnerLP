@@ -40,8 +40,8 @@ test(2).descriptions = ['Aug lag, tol = $10^{-2}$'];
 
 % setup third test
 test(3) = test(2);
-test(3).inner_tol = 1e-8;   
-test(3).PDConvergenceDescriptions = 'aug_lag, tighter tol';
+test(3).inner_tol = 1e-5;   
+test(3).PDConvergenceDescriptions = 'CG, tighter tol';
 test(3).descriptions = ['Aug lag, tol = $10^-8$'];
 
 

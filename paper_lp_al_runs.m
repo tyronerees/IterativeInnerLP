@@ -15,7 +15,7 @@ max_sigma(length_problem) = 0;
 %!! S E T U P    T E S T S  !!
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-no_solvers = 3;
+no_solvers = 4;
 test = struct('Method',{},...
               'krylov_method',{},...
               'precond_method',{},...
@@ -37,13 +37,19 @@ test(2).krylov_method = 2;  % mpgmres
 test(2).precond_method = 1; % aug lag
 test(2).inner_tol = 1e-2;    
 test(2).PDConvergenceDescriptions = 'aug_lag, loose tol';
-test(2).descriptions = ['Aug lag, tol = $10\\eta_k$'];
+test(2).descriptions = ['Aug lag, tol = $10^{-2}$'];
 
 % setup third test
 test(3) = test(2);
-test(3).inner_tol = 1e-8;   
+test(3).inner_tol = 1e-5;   
 test(3).PDConvergenceDescriptions = 'aug_lag, tighter tol';
-test(3).descriptions = ['PPCG, tol = $10^-1\\eta_k$'];
+test(3).descriptions = ['PPCG, tol = $10^-{-4}$'];
+
+% setup fourth test
+test(4) = test(2);
+test(4).inner_tol = 1e-8;   
+test(4).PDConvergenceDescriptions = 'aug_lag, tightest tol';
+test(4).descriptions = ['PPCG, tol = $10^-{6}$'];
 
 
 lp_test_loop;

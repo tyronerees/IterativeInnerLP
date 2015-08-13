@@ -1,4 +1,9 @@
-function plot_inner_convergence(no_solvers,extras,test,problem)
+function plot_inner_convergence(no_solvers,extras,test,problem, ...
+                                fname)
+if nargin < 5
+    fname = 'xxx';
+    keyboard
+end
 
 
 % setup for plot_cc
@@ -21,10 +26,12 @@ for i = 1:no_solvers
     %    hold on, %semilogy(extras{i,problem}.dualfeas,'k-x') 
     %    semilogy(extras{i,problem}.complementray,'b-.')
     semilogy(extras{i,problem}.mu.^0.5,'k-x')
-    semilogy(extras{i,problem}.mu,'b-*')
+    %    semilogy(extras{i,problem}.mu,'b-*')
     hold off
     legend('Error','\mu^{1/2}','\mu')
-    saveas(i,['img/xxx.png'],'png');
+    xlabel('IP iteration number')
+    %    ylabel('Calculated error in (H,S) norm')
+    saveas(i+no_solvers,['img/',fname,int2str(i),'.png'],'png');
 end
 
 %plot_cc('paper',2,'blash_minres_residuals',res)

@@ -67,7 +67,7 @@ end
 lp_runs_writetable;
 
 
-plot_convergence(no_solvers,extras,test,first_prob)
+plot_convergence(no_solvers,extras,test,first_prob,[imgname,'ip_'])
 if options.CalculateError
-    plot_inner_convergence(no_solvers,extras,test,first_prob)
+    plot_inner_convergence(no_solvers,extras,test,first_prob,[imgname,'err_'])
 end

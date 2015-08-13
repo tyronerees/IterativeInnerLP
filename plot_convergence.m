@@ -1,4 +1,8 @@
-function plot_convergence(no_solvers,extras,test,problem)
+function plot_convergence(no_solvers,extras,test,problem, ...
+                                fname)
+if nargin < 5
+    fname = 'xxx';
+end
 
 
 % setup for plot_cc
@@ -15,9 +19,10 @@ for i = 1:no_solvers
     semilogy(extras{i,problem}.complementray,'b-.')
     %    semilogy(extras{i,problem}.mu.^0.5,'g-*')
     hold off
+    xlabel('IP iteration number')    
     legend('Primal feasibility','Dual feasibility', ...
            'Complementarity')%,'\mu^{1/2}')
-    saveas(i,['img/xxx.png'],'png');
+    saveas(i,['img/',fname,int2str(i),'.png'],'png');
 end
 
 %plot_cc('paper',2,'blash_minres_residuals',res)

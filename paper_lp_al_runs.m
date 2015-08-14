@@ -59,4 +59,6 @@ test(5).inner_tol = 1e-10;
 test(5).PDConvergenceDescriptions = 'aug_lag, tightest tol';
 test(5).descriptions = ['PPCG, tol = $10^-{10}$'];
 
+CalculateError = 1;
+
 lp_test_loop;

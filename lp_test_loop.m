@@ -21,11 +21,6 @@ for i = first_prob:first_prob + length_problem - 1
     
     lp_setup;
     
-    max_sigma(i) = svds(A,1)
-    
-    conv_data.max_sigma = max_sigma(i);
-    options.conv_data = conv_data;
-    
     options.mu0       = 0e-0;  % An absolute value
     options.wait      = 0;     
     options.MaxIter   = 50;
@@ -35,7 +30,12 @@ for i = first_prob:first_prob + length_problem - 1
     options.OptTol    = 1e-7;
     options.LSMRMaxIter = 100;
     
-    options.CalculateError = 1;
+    if exist('CalculateError')
+        options.CalculateError = CalculateError;
+    end
+    if exist('ScaleTol')
+        options.ScaleTol = ScaleTol;
+    end
     
     gamma = 0.0;
     delta = 0.0;

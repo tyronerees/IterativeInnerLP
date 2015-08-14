@@ -7,10 +7,10 @@ close all
 problem = importdata('netlib.txt');
 length_problem = length(problem);
 
-imgname = 'ne_runs_';
+imgname = 'ne_changetol_';
 
 first_prob = 1;
-length_problem = 1;
+length_problem = 5;
 
 max_sigma(length_problem) = 0;
 
@@ -18,7 +18,7 @@ max_sigma(length_problem) = 0;
 %!! S E T U P    T E S T S  !!
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-no_solvers = 4;
+no_solvers = 3;
 test = struct('Method',{},...
               'krylov_method',{},...
               'precond_method',{},...
@@ -36,28 +36,17 @@ test(1).descriptions = '$A\backslash b$';
 
 % setup second test
 test(2).Method = 5;        % pcg
-test(2).inner_tol = 1e-1    
-test(2).PDConvergenceDescriptions = 'CG, tol 10^-4';
-test(2).descriptions = ['Norm Eqns, tol = $10^{-4}$'];
+test(2).inner_tol = 1e2;    
+test(2).PDConvergenceDescriptions = 'CG, tol 10^2 * mu * delta ';
+test(2).descriptions = ['Norm Eqns, tol = $10^{2} \\mu \\delta$'];
 
 % setup third test
 test(3) = test(2);
-test(3).inner_tol = 1e-3;   
-test(3).PDConvergenceDescriptions = 'CG, tol 10^-6';
-test(3).descriptions = ['Norm Eqns, tol = $10^-6$'];
+test(3).inner_tol = 1;   
+test(3).PDConvergenceDescriptions = 'CG, tol mu * delta';
+test(3).descriptions = ['Norm Eqns, tol = $\\mu \\delta$'];
 
-% setup third test
-test(4) = test(2);
-test(4).inner_tol = 1e-5;   
-test(4).PDConvergenceDescriptions = 'CG, tol 10^-8';
-test(4).descriptions = ['Norm Eqns, tol = $10^-8$'];
-
-% $$$ % setup third test
-% $$$ test(5) = test(2);
-% $$$ test(5).inner_tol = 1e-7;  
-% $$$ test(5).PDConvergenceDescriptions = 'CG, tol 10^-10';
-% $$$ test(5).descriptions = ['Norm Eqns, tol = $10^-10$'];
-
-CalculateError = 1;
+CalculateError = 0;
+ScaleTol = 1;
 
 lp_test_loop;

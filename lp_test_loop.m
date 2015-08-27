@@ -19,11 +19,12 @@ for i = first_prob:first_prob + length_problem - 1
     %    load(problem{i});
     load(probstring);
     
+    
     lp_setup;
     
     options.mu0       = 0e-0;  % An absolute value
     options.wait      = 0;     
-    options.MaxIter   = 50;
+    options.MaxIter   = 80;
     options.gamma     = 1e-16;
     
     options.FeaTol    = 1e-7;

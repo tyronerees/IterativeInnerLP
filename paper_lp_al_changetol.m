@@ -6,11 +6,12 @@ close all
 
 problem = importdata('netlib.txt');
 length_problem = length(problem);
-length_problem = 1;
 
 imgname = 'al_changetol_';
 
 first_prob = 1;
+%length_problem = 1;
+
 max_sigma(length_problem) = 0;
 
 %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -35,8 +36,8 @@ test(1).descriptions = '$A\backslash b$';
 
 % setup second test
 test(2).Method = 23;        % krylov solver
-test(2).krylov_method = 2;  % mpgmres
-test(2).precond_method = 1; % aug lag
+test(2).krylov_method = 2;  % my minres
+test(2).precond_method = 6; % aug lag
 test(2).inner_tol = 1e2;    
 test(2).PDConvergenceDescriptions = 'aug_lag, tol 10^2 * mu * delta ';
 test(2).descriptions = ['Aug lag, tol = $10^{2} \\mu \\delta$'];

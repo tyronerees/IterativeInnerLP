@@ -8,7 +8,6 @@ lp_beaconfd.mat
 lp_blend.mat
 lp_bnl2.mat
 lp_capri.mat
-lp_cycle.mat
 lp_czprob.mat
 lp_d2q06c.mat
 lp_e226.mat

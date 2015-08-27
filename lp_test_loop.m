@@ -80,6 +80,13 @@ for i = first_prob:first_prob + length_problem - 1
             end
             lp_post;
             break
+        elseif inform ~= 0
+            itvec{j,i} = 0;
+            PDitns{j,i} = 0;
+            CGitns{j,i} = 0;
+            time{j,i} = 0;
+            lp_post;
+            continue
         end
         itvec{j,i} = iv(1:PDitns{j,i});
         

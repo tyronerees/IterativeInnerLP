@@ -45,6 +45,13 @@ for i = first_prob:first_prob + length_problem - 1
         %! Loop over the solvers  !%
         %!!!!!!!!!!!!!!!!!!!!!!!!!!%
         
+        fprintf('\n\n')
+        fprintf('###################\n')
+        fprintf(['##  ',problem{i},'\n'])
+        fprintf('###################\n')
+        
+        
+        
         d1      = gamma;      % Can be scalar if D1 = d1*I.
         d2      = delta*ones(m,1);
         options.Method = test(j).Method;

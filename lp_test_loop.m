@@ -58,6 +58,21 @@ for i = first_prob:first_prob + length_problem - 1
         [x,y,z,inform,PDitns{j,i},CGitns{j,i},time{j,i},iv,extras{j,i}] = ...
             pdco(c,A,b,bl,bu,d1,d2,options,x0, ...
                      y0,z0,xsize,zsize );
+        if (sum(isnan(x)) + sum(isnan(y)) + sum(isnan(z)))
+            % NaN in one of the solutions....something's gone wrong!
+            inform = 100;
+        end
+        if (j == 1) && (inform ~= 0)
+            fprintf('move along...didn''t work with backslash\n')
+            for j = 1:no_solvers
+                itvec{j,i} = 0;
+                PDitns{j,i} = 0;
+                CGitns{j,i} = 0;
+                time{j,i} = 0;
+            end
+            lp_post;
+            break
+        end
         itvec{j,i} = iv(1:PDitns{j,i});
         
         lp_post;

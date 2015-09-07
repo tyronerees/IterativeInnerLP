@@ -10,7 +10,7 @@ length_problem = length(problem);
 imgname = 'al_changetol_';
 
 first_prob = 1;
-%length_problem = 1;
+%length_problem = 10;
 
 max_sigma(length_problem) = 0;
 
